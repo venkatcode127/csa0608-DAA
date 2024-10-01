@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {-9, 3, 4, 6, 8, 9, 10, 30};
+    int key = 10;
+    int left = 0;
+    int right = sizeof(arr)/sizeof(arr[0]) - 1;
+    int found = 0;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == key) {
+            printf("Element %d is found at position %d\n", key, mid);
+            found = 1;
+            break;
+        } else if (arr[mid] < key) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    if (!found) {
+        printf("Element %d is not found in array\n", key);
+    }
+
+    return 0;
+}
