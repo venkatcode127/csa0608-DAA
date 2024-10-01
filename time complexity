@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int input_list[] = {1, 2, 3, 4, 5};
+    int n = sizeof(input_list) / sizeof(input_list[0]);
+    int max_value = input_list[0];  // Initialize max_value to the first element
+
+    // Loop through the array to find the maximum value
+    for (int i = 1; i < n; i++) {
+        if (input_list[i] > max_value) {
+            max_value = input_list[i];  // Update max_value if a larger number is found
+        }
+    }
+
+    printf("%d\n", max_value);  // Print the maximum value
+    return 0;
+}
