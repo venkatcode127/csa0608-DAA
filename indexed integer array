@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int num[] = {1, 2, 1};
+    int n = sizeof(num) / sizeof(num[0]);
+    int result = 0;
+    
+    for (int i = 0; i < n; i++) {
+        int distinct[3] = {0};  // Array to track distinct elements (size is 3 as per num)
+        int distinct_count = 0;
+        
+        for (int j = i; j < n; j++) {
+            if (!distinct[num[j] - 1]) {
+                distinct[num[j] - 1] = 1;  // Mark element as seen
+                distinct_count++;
+            }
+            result += distinct_count * distinct_count;
+        }
+    }
+    
+    printf("%d\n", result);
+    return 0;
+}
+----
