@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+// Function to sort the array and find the maximum element
+void sort_and_find_max(int input_list[], int n, int *max_element) {
+    // Sort the array using bubble sort (or another sorting algorithm)
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (input_list[j] > input_list[j + 1]) {
+                // Swap elements
+                int temp = input_list[j];
+                input_list[j] = input_list[j + 1];
+                input_list[j + 1] = temp;
+            }
+        }
+    }
+
+    // After sorting, the last element is the maximum
+    *max_element = input_list[n - 1];
+}
+
+int main() {
+    int num[] = {5, 2, 8, 1, 9};
+    int n = sizeof(num) / sizeof(num[0]);
+    int max_num;
+
+    sort_and_find_max(num, n, &max_num);
+    
+    printf("Maximum: %d\n", max_num);
+    return 0;
+}
